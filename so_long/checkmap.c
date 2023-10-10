@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkmap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:09:18 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/06 16:57:18 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:38:41 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,19 @@ int	check_entities(char **map)
 		while (map[i][++j] != 0)
 		{
 			if (map[i][j] == 'E')
-				counter[0] = 1;
+				counter[0] += 1;
 			if (map[i][j] == 'C')
-				counter[1] = 1;
+				counter[1] += 1;
 			if (map[i][j] == 'P')
-				counter[2] = 1;
+				counter[2] += 1;
 		}
 	}
-	if (counter[0] && counter[1] && counter[2])
+	if (counter[2] > 1 || counter[0] > 1)
+		null_error_woexit("troppi players/uscite !!!");
+	else if (counter[0] && counter[1] && counter[2])
 		return (1);
-	null_error_woexit("inserisci almeno 1 player/uscita/collezionabile !!!");
+	else
+		null_error_woexit("inserisci almeno 1 player/uscita/collezionabile !!!");
 	return (0);
 }
 

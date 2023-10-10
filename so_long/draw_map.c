@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:53:01 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/09 16:32:16 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:34:21 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	selector(t_game *game, char c)
 	{
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->floor,
 			game->imgx, game->imgy);
-		printf("ciao\n");
 	}
 	if (c == 'E')
 	{

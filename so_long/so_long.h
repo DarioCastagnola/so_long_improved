@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/09 16:04:33 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:28:05 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_A 0
-# define KEY_UP 126
-# define KEY_DOWN 125
-# define KEY_RIGHT 124
-# define KEY_LEFT 123
-# define KEY_ESC 53
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_RIGHT 65363
+# define KEY_LEFT 65361
+# define KEY_ESC 65307
 
 // ---------- TILES
 
