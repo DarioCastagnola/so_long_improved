@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:12 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/13 11:50:05 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:28:32 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	move_player_up(t_game *game, int x, int y)
 	if (game->map[y - 1][x] != '1' && game->map[y - 1][x] != 'F')
 	{
 		if (game->map[y - 1][x] == 'C')
+		{
+			(game->chimescollected)++;
 			(game->numchimes)--;
+		}
 		else if (game->map[y - 1][x] == 'E' && game->end == 0)
 			return ;
 		else if (game->map[y - 1][x] == 'E' && game->end == 1)
@@ -40,7 +43,10 @@ void	move_player_down(t_game *game, int x, int y)
 	if (game->map[y + 1][x] != '1' && game->map[y + 1][x] != 'F')
 	{
 		if (game->map[y + 1][x] == 'C')
+		{
+			(game->chimescollected)++;
 			(game->numchimes)--;
+		}
 		else if (game->map[y + 1][x] == 'E' && game->end == 0)
 			return ;
 		else if (game->map[y + 1][x] == 'E' && game->end == 1)
@@ -63,7 +69,10 @@ void	move_player_left(t_game *game, int x, int y)
 	if (game->map[y][x - 1] != '1' && game->map[y][x - 1] != 'F')
 	{
 		if (game->map[y][x - 1] == 'C')
+		{
+			(game->chimescollected)++;
 			(game->numchimes)--;
+		}
 		else if (game->map[y][x - 1] == 'E' && game->end == 0)
 			return ;
 		else if (game->map[y][x - 1] == 'E' && game->end == 1)
@@ -86,7 +95,10 @@ void	move_player_right(t_game *game, int x, int y)
 	if (game->map[y][x + 1] != '1' && game->map[y][x + 1] != 'F')
 	{
 		if (game->map[y][x + 1] == 'C')
+		{
+			(game->chimescollected)++;
 			(game->numchimes)--;
+		}
 		else if (game->map[y][x + 1] == 'E' && game->end == 0)
 			return ;
 		else if (game->map[y][x + 1] == 'E' && game->end == 1)
@@ -117,6 +129,12 @@ int	key_hook(int key, t_game *game)
 	if (key == KEY_LEFT || key == KEY_A)
 		move_player_left(game, game->bardx, game->bardy);
 	print_moves(game);
+	ft_printf("chimes collected = %d\n", game->chimescollected);
+	if (key == KEY_R && game->chimescollected >= 5)
+	{
+		ft_printf("ciao\n");
+		game->chimescollected -= 5;
+	}
 	ft_printf("%d\n", game->player_moves);
 	if (key == KEY_ESC)
 	{

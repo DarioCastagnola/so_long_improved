@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/10 14:54:25 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:22:26 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_A 0
+# define KEY_R 15
 # define KEY_UP 126
 # define KEY_DOWN 125
 # define KEY_RIGHT 124
@@ -67,6 +68,7 @@ typedef struct s_game
 	int				baronx;
 	int				barony;
 	int				numchimes;
+	int				chimescollected;
 	int				end;
 	int				door_x;
 	int				door_y;

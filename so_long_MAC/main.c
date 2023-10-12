@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:14 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/13 11:44:23 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:27:17 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		null_error("Wrong Input!!");
 	game.end = 0;
+	game.chimescollected = 0;
 	game.player_moves = 0;
 	game.mlx = mlx_init();
 	game.map = read_map(argv[1]);
