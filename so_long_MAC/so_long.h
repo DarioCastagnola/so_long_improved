@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/12 10:22:26 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:39:07 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_game
 	void			*enemy_l;
 	void			*obstacle;
 	void			*baron2;
+	void			*gbaron;
 	void			*baron1;
 	void			*baron3;
 	void			*baron4;
@@ -69,6 +70,8 @@ typedef struct s_game
 	int				barony;
 	int				numchimes;
 	int				chimescollected;
+	int 			temperedfate;
+	int				ultcounter;
 	int				end;
 	int				door_x;
 	int				door_y;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkmap2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:29:52 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/13 11:44:48 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:39:23 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void	animate_baron(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
 		game->floor, (game->baronx) * 64,
 		((game->barony) * 64));
-	if (game->frame >= 0 && game->frame < 12)
+	if (game->temperedfate == 1)
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->gbaron, (game->baronx) * 64,
+			((game->barony) * 64));
+	else if (game->frame >= 0 && game->frame < 12)
 		mlx_put_image_to_window(game->mlx, game->mlx_win,
 			game->baron1, (game->baronx) * 64,
 			((game->barony) * 64));
