@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:12 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/12 16:39:34 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:40:46 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	move_player_up(t_game *game, int x, int y)
 			return ;
 		else if (game->map[y - 1][x] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
-		else if (game->map[y - 1][x] == 'G')
+		else if (game->map[y - 1][x] == 'G' && game->temperedfate == 0)
 			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_u;
 		game->map[y][x] = '0';
@@ -51,7 +51,7 @@ void	move_player_down(t_game *game, int x, int y)
 			return ;
 		else if (game->map[y + 1][x] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
-		else if (game->map[y + 1][x] == 'G')
+		else if (game->map[y + 1][x] == 'G' && game->temperedfate == 0)
 			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_d;
 		game->map[y][x] = '0';
@@ -77,7 +77,7 @@ void	move_player_left(t_game *game, int x, int y)
 			return ;
 		else if (game->map[y][x - 1] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
-		else if (game->map[y][x - 1] == 'G')
+		else if (game->map[y][x - 1] == 'G' && game->temperedfate == 0)
 			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_l;
 		game->map[y][x] = '0';
@@ -103,7 +103,7 @@ void	move_player_right(t_game *game, int x, int y)
 			return ;
 		else if (game->map[y][x + 1] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
-		else if (game->map[y][x + 1] == 'G')
+		else if (game->map[y][x + 1] == 'G' && game->temperedfate == 0)
 			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_r;
 		game->map[y][x] = '0';
@@ -122,13 +122,6 @@ void	ultimate(char *message, t_game *game)
 	game->ultcounter = 0;
 	game->chimescollected -= 5;
 	game->temperedfate = 1;
-	if (game->frame != 60)
-	{
-		ft_printf("frame = %d\n", game->frame);
-		game->ultcounter++;
-	}
-	if (game->ultcounter == 6)
-		game->temperedfate = 0;
 }
 
 int	key_hook(int key, t_game *game)
@@ -145,7 +138,9 @@ int	key_hook(int key, t_game *game)
 		move_player_left(game, game->bardx, game->bardy);
 	print_moves(game);
 	if (key == KEY_R && game->chimescollected >= 5)
+	{
 		ultimate("Tempered Fate", game);
+	}
 	ft_printf("%d\n", game->player_moves);
 	if (key == KEY_ESC)
 	{

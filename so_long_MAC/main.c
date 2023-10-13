@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:14 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/12 16:40:25 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:32:08 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ void	frame_setter(t_game *game)
 		frame = 0;
 	frame++;
 	game->frame = frame;
+	if (game->temperedfate == 1)
+	{
+		if (game->frame == 60)
+			game->ultcounter++;
+		if (game->ultcounter == 6)
+			game->temperedfate = 0;
+	}
 }
 
 int	render(t_game *game)

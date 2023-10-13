@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/12 16:39:07 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:52:50 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ typedef struct s_game
 	void			*baron1;
 	void			*baron3;
 	void			*baron4;
+	int				baronx;
+	int				barony;
 	int				img_width;
 	int				img_height;
 	int				imgx;
 	int				imgy;
 	int				bardx;
 	int				bardy;
-	int				baronx;
-	int				barony;
 	int				numchimes;
 	int				chimescollected;
 	int 			temperedfate;
