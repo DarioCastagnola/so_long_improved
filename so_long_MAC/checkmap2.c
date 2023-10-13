@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:29:52 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/13 15:13:51 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:59:23 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	animate_baron(t_game *game)
 {
 	if (!locate_baron(game))
 		return ;
-	//ft_printf("locate baron = %d\n", game->baron[1].x);
 	for (int i = 0; i < game->nenemies; i++)
 	{
 		mlx_put_image_to_window(game->mlx, game->mlx_win,

@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:12 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/13 14:12:19 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:59:42 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,6 @@ void	move_player_left(t_game *game, int x, int y)
 
 void	move_player_right(t_game *game, int x, int y)
 {
-	ft_printf("ulti = %d\n", game->temperedfate);
-	int i = 0;
-	while (game->map[i]) {
-		int j = 0;
-		while (game->map[i][j]) {
-			ft_printf("%c ", game->map[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
 	if (game->map[y][x + 1] != '1' && game->map[y][x + 1] != 'F')
 	{
 		if (game->map[y][x + 1] == 'C')
