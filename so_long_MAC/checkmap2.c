@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:29:52 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/13 12:28:59 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:13:51 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	animate_baron(t_game *game)
 {
 	if (!locate_baron(game))
 		return ;
-	for (int i = 0; i <= game->nenemies; i++)
+	//ft_printf("locate baron = %d\n", game->baron[1].x);
+	for (int i = 0; i < game->nenemies; i++)
 	{
 		mlx_put_image_to_window(game->mlx, game->mlx_win,
 			game->floor, (game->baron[i].x) * 64,
@@ -69,9 +70,8 @@ int	locate_baron(t_game *game)
 	int	i;
 	int	j;
 
-	ft_printf("num = %d\n", game->nenemies);
 	i = 0;
-	for (int idx = 0; idx <= game->nenemies; idx++)
+	for (int idx = 0; idx < game->nenemies; idx++)
 	{
 		while (game->map[i])
 		{
@@ -82,13 +82,14 @@ int	locate_baron(t_game *game)
 				{
 					game->baron[idx].y = i;
 					game->baron[idx].x = j;
+					idx++;
 				}
 				j++;
 			}
 			i++;
 		}
 	}
-	return (1);
+	return (1); //return 1 if u want the baron to stay visible after walked through(may cause confusion tho :P)
 }
 
 int locate_nenemies(t_game *game)
