@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/13 10:52:50 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:21:35 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@
 
 // ---------- TILES
 
+typedef struct s_enemy
+{
+	void			*gbaron;
+	void			*baron1;
+	void			*baron2;
+	void			*baron3;
+	void			*baron4;
+	unsigned int 	x;
+	unsigned int 	y;
+}	t_enemy;
+
 typedef struct s_game
 {
 	char			**map;
@@ -60,6 +71,7 @@ typedef struct s_game
 	void			*baron1;
 	void			*baron3;
 	void			*baron4;
+	int				nenemies;
 	int				baronx;
 	int				barony;
 	int				img_width;
@@ -77,9 +89,11 @@ typedef struct s_game
 	int				door_y;
 	int				player_moves;
 	int				frame;
+	t_enemy			baron[20];
 }		t_game;
 
 int			locate_baron(t_game *game);
+int 		locate_nenemies(t_game *game);
 void		baron_animation_file(t_game *game);
 int			render(t_game *game);
 void		frame_setter(t_game *game);

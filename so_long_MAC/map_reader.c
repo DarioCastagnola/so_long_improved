@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:10:58 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/12 16:38:45 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:15:29 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,17 @@ int	ft_strlen_file(char *file)
 
 void	baron_animation_file(t_game *game)
 {
-	game->gbaron = mlx_xpm_file_to_image(game->mlx, "xpm/gbaron.xpm",
-		&game->img_width, &game->img_height);
-	game->baron1 = mlx_xpm_file_to_image(game->mlx, "xpm/baron1.xpm",
+	for (int i = 0; i <= game->nenemies; i++)
+	{
+		game->baron[i].gbaron = mlx_xpm_file_to_image(game->mlx, "xpm/gbaron.xpm",
 			&game->img_width, &game->img_height);
-	game->baron2 = mlx_xpm_file_to_image(game->mlx, "xpm/baron2.xpm",
-			&game->img_width, &game->img_height);
-	game->baron3 = mlx_xpm_file_to_image(game->mlx, "xpm/baron3.xpm",
-			&game->img_width, &game->img_height);
-	game->baron4 = mlx_xpm_file_to_image(game->mlx, "xpm/baron4.xpm",
-			&game->img_width, &game->img_height);
+		game->baron[i].baron1 = mlx_xpm_file_to_image(game->mlx, "xpm/baron1.xpm",
+				&game->img_width, &game->img_height);
+		game->baron[i].baron2 = mlx_xpm_file_to_image(game->mlx, "xpm/baron2.xpm",
+				&game->img_width, &game->img_height);
+		game->baron[i].baron3 = mlx_xpm_file_to_image(game->mlx, "xpm/baron3.xpm",
+				&game->img_width, &game->img_height);
+		game->baron[i].baron4 = mlx_xpm_file_to_image(game->mlx, "xpm/baron4.xpm",
+				&game->img_width, &game->img_height);
+	}
 }

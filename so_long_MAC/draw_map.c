@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:53:01 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/13 11:33:46 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:43:46 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	selector_2(t_game *game, char c)
 	{
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->floor,
 			game->imgx, game->imgy);
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->baron1,
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->baron[0].baron1,
 			game->imgx, game->imgy);
 	}
 }

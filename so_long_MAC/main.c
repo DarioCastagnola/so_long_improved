@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:14 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/13 10:32:08 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:28:29 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	game.map = read_map(argv[1]);
 	is_valid_map(game.map);
+	locate_nenemies(&game);
 	ft_check_input(argv[1]);
 	game.mlx_win = mlx_new_window(game.mlx,
 			ft_strlen_file(argv[1]) * 64,
