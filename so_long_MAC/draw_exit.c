@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_exit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:43:42 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 10:06:24 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:41:31 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,25 @@ void	print_moves(t_game *game)
 {
 	char	*str;
 	char	*temp;
-
+	char 	*tempchimes;
+	char	*strchimes;
+	
+	tempchimes = ft_itoa(game->chimescollected);
+	strchimes = ft_strjoin("= ", tempchimes);
 	temp = ft_itoa(game->player_moves);
 	str = ft_strjoin("Mosse: ", temp);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->wall, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->wall, 64, 0);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->wall, 128, 0);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->wall, 192, 0);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->wall, 256, 0);
 	mlx_string_put(game->mlx, game->mlx_win, 20, 10, 0xFF0000, str);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->pickups, 128, 0);
+	mlx_string_put(game->mlx, game->mlx_win, 180, 10, 0xFFBF00, strchimes);
 	free(str);
 	free(temp);
+	free(strchimes);
+	free(tempchimes);
 }
 
 void	lose(char *message)

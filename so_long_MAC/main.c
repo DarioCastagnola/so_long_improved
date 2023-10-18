@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:14 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/10/13 12:28:29 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:28:25 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	frame_setter(t_game *game)
 	{
 		if (game->frame == 60)
 			game->ultcounter++;
-		if (game->ultcounter == 6)
+		if (game->ultcounter == 3)
 			game->temperedfate = 0;
 	}
 }
